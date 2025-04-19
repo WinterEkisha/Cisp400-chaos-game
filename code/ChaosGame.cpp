@@ -1,3 +1,5 @@
+// Authors: Luke B. ; Ahmed Y.
+
 // Include important C++ libraries here
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -23,6 +25,10 @@ int main()
 	
 	vector<Vector2f> vertices;
 	vector<Vector2f> points;
+	
+	
+
+
 
 	while (window.isOpen())
 	{
@@ -50,6 +56,7 @@ int main()
 			    if(vertices.size() < 3)
 			    {
 				vertices.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
+				//std::cout << "size of vertices: " << vertices.size() << '\n';
 			    }
 			    else if(points.size() == 0)
 			    {
@@ -95,10 +102,19 @@ int main()
 		{
 		    RectangleShape rect(Vector2f(10,10));
 		    rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
-		    rect.setFillColor(Color::Blue);
+		    rect.setFillColor(Color::Red);
 		    window.draw(rect);
+			//window.draw(text);
 		}
 		///TODO:  Draw points
+		for(int i = 0; i < points.size(); i++)
+		{
+		    RectangleShape rect(Vector2f(10,10));
+		    rect.setPosition(Vector2f(points[i].x, points[i].y));
+		    rect.setFillColor(Color::Red);
+		    window.draw(rect);
+		}
+		
 		window.display();
 	}
 }
