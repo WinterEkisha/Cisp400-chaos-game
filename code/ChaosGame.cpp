@@ -11,6 +11,7 @@
 #include <cmath>
 
 
+
 //Make the code easier to type with "using namespace"
 using namespace sf;
 using namespace std;
@@ -26,7 +27,20 @@ int main()
 	vector<Vector2f> vertices;
 	vector<Vector2f> points;
 	
-	
+
+	//TODO: FIX FONT
+	sf::Font font;
+	if (!font.loadFromFile("SpecialGothicExpandedOne-Regular.ttf"))
+	{
+	return 1; 
+	}
+
+	sf::Text text;
+	text.setFont(font); // font is a sf::Font
+	text.setString("Make Triangle by clicking");
+	text.setCharacterSize(24); // in pixels, not points!
+	text.setFillColor(sf::Color::Red);
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 
 
 
@@ -98,15 +112,16 @@ int main()
 		****************************************
 		*/
 		window.clear();
+		 
 		for(int i = 0; i < vertices.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
 		    rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
 		    rect.setFillColor(Color::Red);
 		    window.draw(rect);
-			//window.draw(text);
+			window.draw(text); 
 		}
-		///TODO:  Draw points
+		
 		for(int i = 0; i < points.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
