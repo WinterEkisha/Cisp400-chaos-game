@@ -29,10 +29,11 @@ int main()
 	vector<Vector2f> points;
 	
 
-	//TODO: FIX FONT
+	//Fixed Font issue
 	sf::Font font;
 	if(!font.loadFromFile("Ubuntu-M.ttf"))
-	{	cout << "Cant load file" << endl;}
+	{	cout << "Cant load file" << endl;
+	}
 
 
 	sf::Text text("Make a Triangle by clicking", font, 24);
