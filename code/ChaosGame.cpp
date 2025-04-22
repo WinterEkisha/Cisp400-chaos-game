@@ -12,6 +12,7 @@
 
 
 
+
 //Make the code easier to type with "using namespace"
 using namespace sf;
 using namespace std;
@@ -30,19 +31,16 @@ int main()
 
 	//TODO: FIX FONT
 	sf::Font font;
-	if (!font.loadFromFile("SpecialGothicExpandedOne-Regular.ttf"))
-	{
-	return 1; 
-	}
+	if(!font.loadFromFile("Ubuntu-M.ttf"))
+	{	cout << "Cant load file" << endl;}
 
-	sf::Text text;
-	text.setFont(font); // font is a sf::Font
-	text.setString("Make Triangle by clicking");
-	text.setCharacterSize(24); // in pixels, not points!
+
+	sf::Text text("Make a Triangle by clicking", font, 24);
 	text.setFillColor(sf::Color::Red);
 	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 
-
+		
+	
 
 	while (window.isOpen())
 	{
@@ -51,6 +49,7 @@ int main()
 		Handle the players input
 		****************************************
 		*/
+		
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -111,7 +110,10 @@ int main()
 		Draw
 		****************************************
 		*/
+		
 		window.clear();
+		window.draw(text);
+		
 		 
 		for(int i = 0; i < vertices.size(); i++)
 		{
