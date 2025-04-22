@@ -1,4 +1,4 @@
-// Authors: Luke B. ; Ahmed Y.
+// Authors: Luke B. ; Ahmad Y.
 
 // Include important C++ libraries here
 #include <SFML/Graphics.hpp>
